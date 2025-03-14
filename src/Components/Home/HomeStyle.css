@@ -1,0 +1,172 @@
+/* Styles de la section de Video*/
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Plein écran */
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 100px;
+  }
+  
+  .background-video {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+/* Styles de la section de Apropos*/
+
+  .apropos-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+       width:96%;
+
+  }
+
+  .apropos-content {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .apropos-content h2 {
+    font-size: 2rem;
+    color: #004e92;
+  }
+
+  .apropos-content p {
+    font-size: 1.4rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .apropos-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #004e92;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .apropos-content a:hover {
+    background-color: #007dbe;
+  }
+
+  .apropos-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .apropos-image img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+
+  /* image Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    background: url('https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-overlay {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    width: 80%;
+    border-radius: 8px;
+  }
+  
+  .hero h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+
+
+  /* Galerie */
+.gallery {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gallery h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Wrapper pour aligner les boutons et les images */
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+}
+
+.gallery-item {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Boutons de navigation */
+.arrow {
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.arrow:hover {
+  background-color: #0056b3;
+}
+
+.arrow:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.left {
+  margin-right: 15px;
+}
+
+.right {
+  margin-left: 15px;
+}
