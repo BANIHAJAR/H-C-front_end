@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NavStyle.css";
-import logo from "./image.png"; // Remplacez par le chemin de votre logo
+import logo from "/image.png"; // Remplacez par le chemin de votre logo
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
