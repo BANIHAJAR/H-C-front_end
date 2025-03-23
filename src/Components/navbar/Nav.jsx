@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "@inertiajs/inertia-react";
+
 import "./NavStyle.css";
 import logo from "./image.png"; // Remplacez par le chemin de votre logo
 
@@ -16,8 +18,8 @@ const Nav = () => {
       <button className="menu-icon" onClick={toggleMenu}>☰</button>
 
       {/* Logo */}
-      <div className="logo">
-        <img src={logo} alt="HC Hôtellerie" className="logo-img" />
+      <div className="logo"><Link href="/">
+        <img src={logo} alt="HC Hôtellerie" className="logo-img" /></Link>
       </div>
 
       {/* Bouton Réservation */}
