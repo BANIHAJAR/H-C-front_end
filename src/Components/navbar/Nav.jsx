@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+
 import "./NavStyle.css";
-import logo from "./image.png"; // Remplacez par le chemin de votre logo
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,8 @@ const Nav = () => {
       <button className="menu-icon" onClick={toggleMenu}>☰</button>
 
       {/* Logo */}
-      <div className="logo">
-        <img src={logo} alt="HC Hôtellerie" className="logo-img" />
+      <div className="logo"><Link to='/'>
+        <img src="/public/logo.jpg" alt="HC Hôtellerie" className="logo-img" /></Link>
       </div>
 
       {/* Bouton Réservation */}
@@ -27,20 +28,20 @@ const Nav = () => {
       {isOpen && (
         <div className="dropdown-menu">
           <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Offres</a></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/">Offres</Link></li>
             <li className="dropdown">
-              <a href="#">Nos Chambres ▼</a>
+              <Link to="/rooms">Nos Chambres ▼</Link>
               <ul className="submenu">
-                <li><a href="#">Chambre Double</a></li>
-                <li><a href="#">Chambre Single</a></li>
-                <li><a href="#">Chambre Triple</a></li>
-                <li><a href="#">Suite Junior</a></li>
+                <li><Link to="/">Chambre Double</Link></li>
+                <li><Link to="/">Chambre Single</Link></li>
+                <li><Link to="/">Chambre Triple</Link></li>
+                <li><Link to="/">Suite Junior</Link></li>
               </ul>
             </li>
-            <li><a href="#">Galerie</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Réservation</a></li>
+            <li><Link to="/">Galerie</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/">Réservation</Link></li>
           </ul>
         </div>
       )}
