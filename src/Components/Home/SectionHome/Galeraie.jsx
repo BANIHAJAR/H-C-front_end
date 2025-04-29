@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const images = [
   "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg",
@@ -10,40 +10,57 @@ const images = [
   "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg",
   "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg",
+  "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg",
+  "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg",
 ];
 
-export default function Galleraie() {
-    const [startIndex, setStartIndex] = useState(0);
-    const imagesPerPage = 3;
-  
-    const prevSlide = () => {
-      setStartIndex((prev) => (prev - imagesPerPage < 0 ? 0 : prev - imagesPerPage));
-    };
-  
-    const nextSlide = () => {
-      setStartIndex((prev) =>
-        prev + imagesPerPage >= images.length ? prev : prev + imagesPerPage
-      );
-    };
-  
-    return (
-      <div className="gallery">
-        <h3>Nos Galeries</h3>
-        <div className="gallery-wrapper">
-          <button className="arrow left" onClick={prevSlide} disabled={startIndex === 0}>
-            ❮
-          </button>
-          <div className="gallery-container">
-            {images.slice(startIndex, startIndex + imagesPerPage).map((img, index) => (
-              <div key={index} className="gallery-item">
-                <img src={img} alt={`Galerie ${index}`} />
-              </div>
-            ))}
-          </div>
-          <button className="arrow right" onClick={nextSlide} disabled={startIndex + imagesPerPage >= images.length}>
-            ❯
-          </button>
-        </div>
+const GallerySection = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openImage = (img) => {
+    setSelectedImage(img);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
+  return (
+    <div className="social-gallery">
+      <h2>Suivez-nous sur Instagram et Facebook</h2>
+
+      <div className="social-icons">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-instagram"></i>
+        </a>
       </div>
-    );
-  }
+
+      <div className="gallery-grid">
+        {images.map((src, index) => (
+          <div key={index} className="image-container">
+            <img
+              src={`${src}`}
+              alt={`Galerie ${index + 1}`}
+              onClick={() => openImage(src)}
+            />
+            <div className="plus-icon" onClick={() => openImage(src)}>+</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div className="modal" onClick={closeModal}>
+          <span className="close">&times;</span>
+          <img className="modal-content" src={`${selectedImage}`} alt="Agrandie" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default GallerySection;

@@ -1,9 +1,14 @@
-import React from "react";
+import React,{useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"
 const Apropos = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
     return (
       <section className="apropos-section">
         {/* Contenu Texte */}
-        <div className="apropos-content">
+        <div className="apropos-content" data-aos="fade-right">
           <h2>  À propos  H&C Hôtellerie </h2>
           <p>
           H&C Hôtellerie est un hôtel de luxe offrant une expérience authentique et élégante à ses clients.
@@ -16,7 +21,7 @@ const Apropos = () => {
         </div>
   
         {/* Image */}
-        <div className="apropos-image">
+        <div className="apropos-image" data-aos="fade-left">
           <img src="https://images.pexels.com/photos/5371575/pexels-photo-5371575.jpeg" />
         </div>
       </section>
