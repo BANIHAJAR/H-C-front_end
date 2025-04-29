@@ -7,8 +7,8 @@
     background-color: white;
     position:fixed;
     top:0px;
-    left: 7px;
-    right: 7px;
+    left: 0px;
+    right: 0px;
   }
   
   .menu-icon {
@@ -23,11 +23,11 @@
   }
   
   .logo-img {
-    height: 100px; /* Ajustez la taille selon votre besoin */
+    height: 50px; /* Ajustez la taille selon votre besoin */
   }
   
   .reservation-btn {
-    background-color: olive;
+    background-color:  #a88c53;
     color: white;
     padding: 8px 15px;
     border: none;

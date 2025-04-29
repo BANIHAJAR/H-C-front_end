@@ -7,8 +7,14 @@
 
 /* Section Image et Texte */
 .contact-header {
-  color: rgb(10, 8, 8);
-  padding: 100px 20px;
+  background-image: url("https://fr.vecteezy.com/photo/22771528-interieur-de-une-luxueux-chambre-dans-lumiere-couleurs-generatif-ai"); /* Vérifie le chemin */
+  background-size: cover; /* Ajuste l'image pour couvrir toute la div */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat; /* Empêche la répétition */
+  color: rgb(0, 0, 0); /* Texte en blanc pour la lisibilité */
+  text-align: center; /* Centrer le texte */
+  padding: 100px 20px; /* Espacement */
+  border-radius: 10px; /* Coins arrondis */
 }
 
 .contact-header h1 {
@@ -21,6 +27,8 @@
   margin: 0 auto;
   font-size: 1rem;
 }
+
+
 
 /* Formulaire de contact */
 .contact-form {

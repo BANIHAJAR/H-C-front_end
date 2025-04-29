@@ -7,10 +7,11 @@ const Contact = () => {
       {/* Section Image et Texte */}
       <div className="contact-header">
         <h1>Contact us</h1>
-        <p>
-          The elegant luxury bedrooms in this gallery showcase custom interior
+        <p><strong>
+        The elegant luxury bedrooms in this gallery showcase custom interior
           designs & decorating ideas. View pictures and find your perfect
           luxury bedroom design.
+        </strong>
         </p>
       </div>
       {/* Formulaire de contact */}
