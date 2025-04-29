@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./NavStyle.css";
 import { Link } from "react-router-dom";
+import "./NavStyle.css";
+import logo from "/public/image.png"; // Assurez-vous du bon chemin du logo
 import { FiChevronDown } from "react-icons/fi"; // Import de l'icône
 
 const Nav = () => {
@@ -10,6 +11,7 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  
 
   const toggleRoomsMenu = () => {
     setIsRoomsOpen(!isRoomsOpen);
@@ -18,7 +20,6 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <button className="menu-icon" onClick={toggleMenu}>☰</button>
-
       <div className="logo">
         <Link to='/'>
           <img src="/public/logo.jpg" alt="HC Hôtellerie" className="logo-img" />
@@ -32,6 +33,7 @@ const Nav = () => {
           <ul>
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/">Offres</Link></li>
+
             <li>
               <button onClick={toggleRoomsMenu} className="dropdown-toggle">Nos Chambres<FiChevronDown className={isRoomsOpen ? "chevron-icon rotate" : "chevron-icon"}/></button>
               {isRoomsOpen && (
@@ -54,3 +56,4 @@ const Nav = () => {
 };
 
 export default Nav;
+

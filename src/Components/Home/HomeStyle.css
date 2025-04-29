@@ -133,9 +133,17 @@
   margin-bottom: 15px;
 }
 
+
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
 /* Icônes Facebook & Instagram */
 .social-icons {
   margin-bottom: 30px;
+
 }
 
 .social-icons a {

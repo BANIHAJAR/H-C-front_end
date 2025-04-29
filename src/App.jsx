@@ -4,6 +4,7 @@ import Home from './Components/Home/App.jsx'
 import Contact from './Components/Contact/Contact.jsx'
 import Rooms from './Components/Rooms/Rooms.jsx'
 import Footer from './Components/Footer/Footer.jsx'
+import Standard from './Components/Rooms/Standard/Standard.jsx'
 import Galerie from './Components/Galerie/Galerie.jsx'
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/rooms" element={<Rooms />} />
+          <Route path="/Standard" element={<Standard />} />
           <Route path="/Galerie" element={<Galerie />} />
-          
         </Routes>
         <Footer/>
       </>
