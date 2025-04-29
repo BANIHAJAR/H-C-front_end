@@ -1,7 +1,10 @@
-
+import React,{useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"
 function ImageSection() {
+  
   return (
-    <div className="hero">
+    <div className="hero" data-aos="fade-up">
       <div className="hero-overlay">
         <h2>Événements Hôtellerie H & C</h2>
         <p>

@@ -2,7 +2,7 @@
 .video-container {
     position: relative;
     width: 100%;
-    height: 550px; /* Plein écran */
+    height: 750px; /* Plein écran */
     overflow: hidden;
     z-index: 1;
     margin-top: 100px;
@@ -10,7 +10,7 @@
   
   .background-video {
     width: 100%;
-    height: 550px;
+    height: 750px;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -36,7 +36,7 @@
 
   .apropos-content h2 {
     font-size: 2rem;
-    color: #004e92;
+    color: #a88c53;
   }
 
   .apropos-content p {
@@ -49,7 +49,7 @@
   .apropos-content a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #004e92;
+    background-color: #a88c53;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -58,7 +58,7 @@
   }
 
   .apropos-content a:hover {
-    background-color: #007dbe;
+    background-color: #89754d;
   }
 
   .apropos-image {
@@ -72,8 +72,21 @@
     max-width: 100%;
     border-radius: 10px;
   }
-
-
+  @media (max-width: 768px) {
+    .apropos-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .apropos-content {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  
+    .apropos-image img {
+      width: 90%;
+    }
+  }
   /* image Section */
 .hero {
     position: relative;
@@ -94,80 +107,143 @@
   }
   
   .hero h2 {
-    font-size: 24px;
+    font-size: 35px;
+    font-weight: bold;
     margin-bottom: 10px;
   }
   
   .hero p {
-    font-size: 16px;
+    font-size: 24px;
   }
   
 
 
   /* Galerie */
-.gallery {
+  /* Conteneur principal */
+.social-gallery {
   text-align: center;
-  margin-top: 20px;
+  padding: 50px 20px;
 }
 
-.gallery h3 {
-  font-size: 24px;
+/* Titre */
+.social-gallery h2 {
+  font-size: 28px;
+  font-family: 'Georgia', serif;
+  color: #7c5e2a;
   margin-bottom: 15px;
 }
 
+/* Icônes Facebook & Instagram */
+.social-icons {
+  margin-bottom: 30px;
+}
 
-.gallery-wrapper {
+.social-icons a {
+  font-size: 26px;
+  color: #7c5e2a;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f28a2e;
+}
+
+/* Grille responsive des images */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Conteneur de chaque image */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Image dans la grille */
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Zoom au survol */
+.image-container:hover img {
+  transform: scale(1.03);
+}
+
+/* Icône "+" */
+.plus-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+.plus-icon:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.plus-icon {
+  opacity: 0;
+}
+
+.image-container:hover .plus-icon {
+  opacity: 1;
+}
+
+/* Fenêtre modale (lightbox) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-}
-
-.gallery-container {
-  display: flex;
-  gap: 15px;
-  padding: 10px;
-}
-
-.gallery-item {
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Boutons de navigation */
-.arrow {
-  color: rgb(0, 0, 0);
-  border: none;
+  z-index: 999;
   padding: 20px;
-  font-size: 20px;
-  border-radius: 50%;
+}
+
+/* Image dans la modale */
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px black;
+}
+
+/* Bouton de fermeture (croix) */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  z-index: 1000;
+  transition: color 0.3s ease;
 }
 
-.arrow:hover {
-  background-color: #0056b3;
-}
-
-.arrow:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.left {
-  margin-right: 15px;
-}
-
-.right {
-  margin-left: 15px;
+.close:hover {
+  color: #f28a2e;
 }
