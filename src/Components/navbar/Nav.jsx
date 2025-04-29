@@ -2,47 +2,50 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavStyle.css";
 import logo from "/public/image.png"; // Assurez-vous du bon chemin du logo
+import { FiChevronDown } from "react-icons/fi"; // Import de l'icône
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRoomsOpen, setIsRoomsOpen] = useState(false); // Nouvel état
 
-  // Fonction pour afficher/masquer le menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
   
 
+  const toggleRoomsMenu = () => {
+    setIsRoomsOpen(!isRoomsOpen);
+  };
+
   return (
     <nav className="navbar">
-      {/* Icône du menu */}
       <button className="menu-icon" onClick={toggleMenu}>☰</button>
-
-      {/* Logo avec Link */}
       <div className="logo">
         <Link to='/'>
-          <img src={logo} alt="HC Hôtellerie" className="logo-img" />
+          <img src="/public/logo.jpg" alt="HC Hôtellerie" className="logo-img" />
         </Link>
       </div>
 
-      {/* Bouton Réservation */}
       <button className="reservation-btn">Réservation</button>
 
-      {/* Menu déroulant */}
       {isOpen && (
         <div className="dropdown-menu">
           <ul>
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/">Offres</Link></li>
-            <li className="dropdown">
-              <Link to="/rooms">Nos Chambres ▼</Link>
-              <ul className="submenu">
-                <li><Link to="/Standard">Chambre Standard</Link></li>
-                <li><Link to="/">Chambre Single</Link></li>
-                <li><Link to="/">Chambre Triple</Link></li>
-                <li><Link to="/">Suite Junior</Link></li>
-              </ul>
+
+            <li>
+              <button onClick={toggleRoomsMenu} className="dropdown-toggle">Nos Chambres<FiChevronDown className={isRoomsOpen ? "chevron-icon rotate" : "chevron-icon"}/></button>
+              {isRoomsOpen && (
+                <ul className="submenu">
+                  <li><Link to="/">Chambre Double</Link></li>
+                  <li><Link to="/">Chambre Single</Link></li>
+                  <li><Link to="/">Chambre Triple</Link></li>
+                  <li><Link to="/">Suite Junior</Link></li>
+                </ul>
+              )}
             </li>
-            <li><Link to="/">Galerie</Link></li>
+            <li><Link to="/Galerie">Galerie</Link></li>
             <li><Link to="/contact">Contact</Link></li>
             <li><Link to="/">Réservation</Link></li>
           </ul>

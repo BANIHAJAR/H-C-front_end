@@ -13,6 +13,8 @@
   
   .menu-icon {
     font-size: 40px;
+    position:relative;
+    left: 12px;
     background: none;
     border: none;
     cursor: pointer;
@@ -27,16 +29,18 @@
   }
   
   .reservation-btn {
-    background-color:  #a88c53;
+    background-color: #a88c53;
     color: white;
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    position:relative;
+    right: 12px;
   }
   
   .reservation-btn:hover {
-    background-color: darkolivegreen;
+    background-color: #8d774b;
   }
   
   /* Menu déroulant */
@@ -74,10 +78,34 @@
   
   /* Sous-menu */
   .submenu {
-    display: none;
     padding-left: 15px;
+    margin-top: 5px;
   }
   
-  .dropdown:hover .submenu {
-    display: block;
+  .dropdown-toggle:hover {
+    background: #f0f0f0;
   }
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    font: inherit;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .chevron-icon {
+    font-size: 18px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Rotation si ouvert */
+  .rotate {
+    transform: rotate(180deg);
+  }
+  
