@@ -1,7 +1,7 @@
 import VideoSection from "./SectionHome/VideoSection"
 import Apropos from './SectionHome/Apropos'
 import ImageSection from "./SectionHome/ImageSection"
-import RestaurantSlider from './SectionHome/RestaurantSlider'
+import NosService from './SectionHome/NosService'
 import Galleraie from "./SectionHome/Galeraie";
 import "./HomeStyle.css";
 
@@ -11,7 +11,7 @@ const App = () => {
       <VideoSection/>
       <Apropos/>
       <ImageSection/>
-      <RestaurantSlider />
+      <NosService />
       <Galleraie/>
     </div>
   );

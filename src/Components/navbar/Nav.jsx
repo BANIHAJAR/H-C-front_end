@@ -25,7 +25,7 @@ const Nav = () => {
         </Link>
       </div>
 
-      <button className="reservation-btn">Réservation</button>
+      <Link to="/rooms"><button className="reservation-btn">Réservation</button></Link>
 
       {isOpen && (
         <div className="dropdown-menu">
@@ -36,8 +36,10 @@ const Nav = () => {
               <button onClick={toggleRoomsMenu} className="dropdown-toggle">Nos Chambres<FiChevronDown className={isRoomsOpen ? "chevron-icon rotate" : "chevron-icon"}/></button>
               {isRoomsOpen && (
                 <ul className="submenu">
-                  <li><Link to="/">Chambre Double</Link></li>
-                  <li><Link to="/">Chambre Single</Link></li>
+                  <li><Link to="/Standard">Chambre Double Deluxe</Link></li>
+                  <li><Link to="/">Chambre Single Deluxe</Link></li>
+                  <li><Link to="/Standard">Chambre Double Premium</Link></li>
+                  <li><Link to="/">Chambre Single Premium</Link></li>
                   <li><Link to="/">Chambre Triple</Link></li>
                   <li><Link to="/">Suite Junior</Link></li>
                 </ul>

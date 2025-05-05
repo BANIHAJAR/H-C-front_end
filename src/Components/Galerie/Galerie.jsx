@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Galerie.css";
@@ -39,6 +39,16 @@ const sections = [
 ];
 
 const Galerie = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  
+    const openImage = (img) => {
+      setSelectedImage(img);
+    };
+  
+    const closeModal = () => {
+      setSelectedImage(null);
+    };
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -56,12 +66,21 @@ const Galerie = () => {
           <div className="galerie-grid">
             {section.images.map((src, imgIndex) => (
               <div className="galerie-item" key={imgIndex} data-aos="zoom-in">
-                <img src={src} alt={`${section.title}-${imgIndex}`} />
+                <img src={src} alt={`${section.title}-${imgIndex}`} onClick={() => openImage(src)}/>
+                <div className="plus-icon" onClick={() => openImage(src)}>+</div>
               </div>
             ))}
           </div>
         </div>
       ))}
+
+      {/* Modal */}
+      {selectedImage && (
+        <div className="modal" onClick={closeModal}>
+          <span className="close">&times;</span>
+          <img className="modal-content" src={`${selectedImage}`} alt="Agrandie" />
+        </div>
+      )}
     </section>
     </>
   );

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"
 
-const restaurants = [
+const Services = [
   {
     name: "Chambres de Luxe & Confort Moderne",
     location: "Offrez-vous une nuit paisible dans un cadre élégant.",
@@ -32,19 +34,23 @@ const restaurants = [
   // Vous pouvez ajouter d'autres objets ici si vous voulez plusieurs slides
 ];
 
-export default function RestaurantSlider() {
+export default function ServicesSlide() {
+    useEffect(() => {
+      AOS.init({ duration: 1000 });
+    }, []);
+
   const [index, setIndex] = useState(0);
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + restaurants.length) % restaurants.length);
+    setIndex((prev) => (prev - 1 + Services.length) % Services.length);
   };
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % restaurants.length);
+    setIndex((prev) => (prev + 1) % Services.length);
   };
 
 
-  const { name, location, description, image } = restaurants[index];
+  const { name, location, description, image } = Services[index];
 
   return (
     <section className="py-16 px-4 md:px-20 bg-white">
@@ -52,7 +58,7 @@ export default function RestaurantSlider() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Panel */}
-        <div className="bg-[#f8f6f1] p-10 rounded-lg relative">
+        <div className="bg-[#f8f6f1] p-10 rounded-lg relative" data-aos="fade-right">
           <h3 className="text-3xl mb-2">{name}</h3>
           <h4 className="text-lg font-semibold mb-4">{location}</h4>
           <p className="text-gray-700 mb-6">{description}</p>
@@ -69,7 +75,7 @@ export default function RestaurantSlider() {
               &#8592;
             </button>
             <span className="text-sm text-gray-600">
-              {index + 1} / {restaurants.length}
+              {index + 1} / {Services.length}
             </span>
             <button
               onClick={nextSlide}
@@ -81,7 +87,7 @@ export default function RestaurantSlider() {
         </div>
 
         {/* Right Panel */}
-        <div>
+        <div data-aos="fade-left">
           <img
             src={image}
             alt={name}
